@@ -1,1 +1,1 @@
-# RPPS
+# RPPS - Rapid Protocol Prototyping Solution
