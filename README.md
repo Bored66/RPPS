@@ -6,8 +6,8 @@ It's written in C++ using Qt framework (4/5).
 ### Features
 - Supports regular C++ types as datagram fields
 - Supports custom structures, enumerations and bit fields as datagram fields
-- Supports fiчed-size fields (arrays)
-- Variable-sized fields including custom types
+- Supports fixed-size fields (arrays)
+- Supports variable-sized fields including custom types
 - Supports arbitrary number of variable-sized fields
 - Supports arbitrary number of checksum (CRC) fields according to given protocol definition
 - Checks protocol consistency/coherence prior to code generation
