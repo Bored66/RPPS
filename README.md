@@ -5,15 +5,21 @@ It's written in C++ using Qt framework (4/5).
 
 ### Features
 - Supports regular C++ types as datagram fields
-- Supports custom structures, enumerations and bit fields as datagram fields
+- Supports custom composite types (POD structures), enumerations and bit fields as datagram fields
 - Supports fixed-size fields (arrays)
 - Supports variable-sized fields including custom types
 - Supports arbitrary number of variable-sized fields
 - Supports arbitrary number of checksum (CRC) fields according to given protocol definition
 - Checks protocol consistency/coherence prior to code generation
-- Creates basic protocol emulation and tests
+- Creates basic protocol emulation
+- Creates autotests
+- Provides flexible and robust diagnostics and logging
 
 ### Tools
-
+* Generator - creates C++ classes from XMl
+* Protocol Editor
+  - Includes smart terminal facility:
+  Once parts of your protocol defined you can immidietly start testing it using different transport without creating actual C++ code
+* Terminal and transport test
 
 
