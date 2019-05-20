@@ -5,13 +5,13 @@ It's written in C++ using Qt framework (4/5).
 
 ### Features
 * Supports
--  regular C++ types as datagram fields
-- custom composite types (POD structures), enumerations and bit fields as datagram fields
-- fixed-size fields (arrays)
-- variable-sized fields including custom types
-- arbitrary number of variable-sized fields
-- arbitrary number of checksum (CRC) fields according to given protocol definition
-- datagram transformations (i.e. byte stuffing/unstuffing)
+  -  regular C++ types as datagram fields
+  - custom composite types (POD structures), enumerations and bit fields as datagram fields
+  - fixed-size fields (arrays)
+  - variable-sized fields including custom types
+  - arbitrary number of variable-sized fields
+  - arbitrary number of checksum (CRC) fields according to given protocol definition
+  - datagram transformations (i.e. byte stuffing/unstuffing)
 * Checks protocol consistency/coherence prior to code generation
 * Creates basic protocol emulation
 * Creates autotests
