@@ -19,7 +19,7 @@ It's written in C++ using Qt framework (4/5).
 * Generator - creates C++ classes from XML
 * Protocol Editor
   - Supports full development cycle:
-  Create, edit, build and test your projects in one programm
+  create, edit, build and test your projects in one program
   - Includes smart terminal facility:
   Once even small parts of your protocol defined you can immediately start testing it using different transport with a real device without creating actual C++ code
 * Terminal and transport test
