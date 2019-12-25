@@ -1,17 +1,3 @@
-/*
-Copyright (c) 2017-2019 Burka, Borovitski, Golyapa
-
-Permission to use, copy, modify, and/or distribute this software for any purpose
-with or without fee is hereby granted.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
-WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
-MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
-ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
-WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
-ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
-OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-*/
 // Description: Разбор структуры пакета
 #include <QDebug>
 #include <QProcessEnvironment>
@@ -55,6 +41,14 @@ void PacketDispatcher::Dispatch(const QByteArray &data)
 
     emit onDispatch( data );
     auto sz = data.size();
+    if(current_buffer_size<data.size()+buffer_upper_bound)
+    {
+        char* _buffer_new=new char[data.size()+buffer_upper_bound+1];
+        memcpy(_buffer_new,_buffer,buffer_upper_bound);
+        delete [] _buffer;
+        _buffer=_buffer_new;
+        fprintf(stderr, "groves buf\n");
+    }
     memcpy(_buffer + buffer_upper_bound, data.data(), sz);
     buffer_upper_bound += sz;
     ////_buffer.append( data );
