@@ -2,7 +2,7 @@
 # Description: Файл подключения библиотеки
 #-------------------------------------------------------------------------------
 DS_IMPOSTER_FOLDER_NAME = devImposter
-include($$PWD/adv_config.pri)
+include($$PWD/rpps_config.pri)
 DS_LIB_NAME = RPPTDevSupport$${QT_MAJOR_VERSION}$${DS_LIB_SUFFIX}
 
 #-------------------------------------------------------------------------------

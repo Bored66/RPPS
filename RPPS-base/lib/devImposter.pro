@@ -31,12 +31,12 @@ IMPOSTER_SOURCES = \
 !contains(SOURCES, IMPOSTER_SOURCES): SOURCES += $${IMPOSTER_SOURCES}
 
 OTHER_FILES += \
-    $$PWD/adv_config.pri \
+    $$PWD/rpps_config.pri \
     $$PWD/min_rpps.pri \
     $$PWD/lib.pri
 
 features.files = \
-    $$PWD/adv_config.pri \
+    $$PWD/rpps_config.pri \
     $$PWD/min_rpps.pri \
     $$PWD/lib.pri
 
