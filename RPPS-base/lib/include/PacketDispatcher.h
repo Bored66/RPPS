@@ -64,6 +64,7 @@ public:
     uint garbageLimit() const;
     void setGarbageLimit(const uint &garbageLimit);
 
+
 signals:
     void                                    dispatchResult( TransportRequestStatus );
     void                                    onDispatch( const QByteArray & data );
@@ -71,6 +72,7 @@ signals:
 public slots:
     virtual void                            Dispatch( const QByteArray & data );
 protected:
+    void appendBuffer(const QByteArray &data);
     virtual
     PacketDescriptor **                     GetDispatcherTable() = 0;
 

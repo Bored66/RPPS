@@ -15,7 +15,7 @@ PacketDispatcher::PacketDispatcher(ITransport *dataProvider, QObject *parent):
     _dispatcherTable(nullptr),
     _outputDebug(false)
 {
-    current_buffer_size = 2 * 0xffff;
+    current_buffer_size = 2*0xffff;
     _buffer = new char[current_buffer_size];
     SetTransport( dataProvider );
 }
@@ -40,17 +40,7 @@ void PacketDispatcher::Dispatch(const QByteArray &data)
     uint read = 0;
 
     emit onDispatch( data );
-    auto sz = data.size();
-    if(current_buffer_size<data.size()+buffer_upper_bound)
-    {
-        char* _buffer_new=new char[data.size()+buffer_upper_bound+1];
-        memcpy(_buffer_new,_buffer,buffer_upper_bound);
-        delete [] _buffer;
-        _buffer=_buffer_new;
-        fprintf(stderr, "groves buf\n");
-    }
-    memcpy(_buffer + buffer_upper_bound, data.data(), sz);
-    buffer_upper_bound += sz;
+    appendBuffer(data);
     ////_buffer.append( data );
     int index = 0;
     int i1 = 0;
@@ -113,6 +103,22 @@ void PacketDispatcher::Dispatch(const QByteArray &data)
         offset_in_buffer = 0;
     }
     emit dispatchResult( _result );
+}
+void PacketDispatcher::appendBuffer(const QByteArray &data)
+{
+    uint data_size = uint(data.size());
+    if(current_buffer_size < data_size + buffer_upper_bound)
+    {
+        fprintf(stderr, "resizing buffer from %d to %d\n",
+                current_buffer_size, current_buffer_size + data_size);
+        current_buffer_size += data_size;
+        char* buffer_new = new char[current_buffer_size];
+        memcpy(buffer_new, _buffer, buffer_upper_bound);
+        delete [] _buffer;
+        _buffer = buffer_new;
+    }
+    memcpy(_buffer + buffer_upper_bound, data.data(), data_size);
+    buffer_upper_bound += data_size;
 }
 
 void PacketDispatcher::SetTransport( ITransport * transport )
