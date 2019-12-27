@@ -27,6 +27,6 @@ It's written in C++ using Qt framework (4/5).
   Once even small parts of your protocol defined you can immediately start testing it using different transport with a real device without creating actual C++ code
 * Terminal and transport test
 
-### Authors
+### Credits
   Yuri Burka (https://github.com/Burich), Eduard Borovitski (https://github.com/Bored66) and E.Golyapa (golyapikus@gmail.com)
 
