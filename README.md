@@ -28,5 +28,5 @@ It's written in C++ using Qt framework (4/5).
 * Terminal and transport test
 
 ### Authors
-  @Burich, @Bored66 and E.Golyapa (golyapikus@gmail.com)
+  Yuri Burka (https://github.com/Burich), Eduard Borovitski (https://github.com/Bored66) and E.Golyapa (golyapikus@gmail.com)
 
